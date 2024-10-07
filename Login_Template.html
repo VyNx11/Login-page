@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://img.freepik.com/premium-photo/grainy-gradient-background-red-white-blue-colors-with-soft-faded-watercolor-border-texture_927344-24167.jpg');
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-container {
+            background-color: rgb(167, 132, 132);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        input {
+            width: 94%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error-message {
+            color: red;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Login</h2>
+    <label for="name">Name</label>
+    <input type="text" id="name" placeholder="Enter your name" required>
+    <div id="nameError" class="error-message"></div>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="Enter your email" required>
+    <div id="emailError" class="error-message"></div>
+
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="Enter your password" required>
+    <div id="passwordError" class="error-message"></div>
+
+    <button onclick="login()">Login</button>
+</div>
+
+<script>
+    const storedName = "Jaezer Vynx De leon";
+    const storedEmail = "jaezervynx.deleon@msugensan.edu.ph";
+    const storedPassword = "17329293";
+
+    function login() {
+        // Clear previous error messages
+        document.getElementById("nameError").innerText = "";
+        document.getElementById("emailError").innerText = "";
+        document.getElementById("passwordError").innerText = "";
+
+        // Get values from input fields
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        let valid = true;
+
+        // Validate Name
+        if (name.toLowerCase() !== storedName.toLowerCase()) {
+            document.getElementById("nameError").innerText = "Name not found.";
+            valid = false;
+        }
+
+        // Validate Email
+        if (email !== storedEmail) {
+            document.getElementById("emailError").innerText = "Email not found.";
+            valid = false;
+        }
+
+        // Validate Password
+        if (password !== storedPassword) {
+            document.getElementById("passwordError").innerText = "Incorrect password.";
+            valid = false;
+        }
+
+        // Successful login
+        if (valid) {
+            alert(`Login as ${storedName} successful!`);
+            window.location.href = "https://vle.msugensan.edu.ph/my/"; // Redirect to welcome page
+        }
+    }
+</script>
+
+</body>
+</html>
