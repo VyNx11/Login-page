@@ -67,12 +67,10 @@
 </div>
 
 <script>
-    // Hash of the original password '17329293' using SHA-256 (Pre-calculated for demonstration)
     const storedName = "Jaezer Vynx De leon";
     const storedEmail = "jaezervynx.deleon@msugensan.edu.ph";
-    const storedPasswordHash = "f5bb72bb9e1feee5fe9ba4dd07f92e02673ac1a83116408f0bd71c0e409fde33"; // SHA-256 hash of '17329293'
+    const storedPasswordHash = "483029d526219f816e8e8f6a9de07b422633dba180ffc26faac22862a017519f";
 
-    // Function to hash input password
     async function hashPassword(password) {
         const encoder = new TextEncoder();
         const data = encoder.encode(password);
